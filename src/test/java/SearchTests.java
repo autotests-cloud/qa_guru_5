@@ -33,20 +33,20 @@ public class SearchTests {
 
     @BeforeAll
     static void setUpConfig() {
-        log.info("Before all here ");
+        log.info("@BeforeAll");
         Configuration.browser = "chrome";
         Configuration.startMaximized = true;
     }
 
     @BeforeEach
     void openGooglePage() {
-        log.info("Before each here ");
+        log.info(" @BeforeEach");
         open("https://www.google.com/");
     }
 
     @AfterEach
     void closeBrowser() {
-        log.info("After each here ");
+        log.info("@AfterEach");
         closeWebDriver();
     }
 
