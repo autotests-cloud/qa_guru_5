@@ -1,5 +1,13 @@
 package guru.qa;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Stream;
+
 public class Main {
 
     static NKVD nkvd = new NKVD();
@@ -21,10 +29,28 @@ public class Main {
     char aChar = 'c';
 
     public static void main(String[] args) {
+        String[] stringArray;
+        stringArray = new String[] {"Vasya", "Dima", "Irina"};
+
+        for (int i = 0; i < stringArray.length; i++) {
+            if (stringArray[i].equals("Dima")) {
+                return;
+            }
+            System.out.println(stringArray[i]);
+        }
+
+        for (String element : stringArray) {
+            System.out.println(element);
+        }
+
+
+
+
+
         Kulak kulak = new Kulak("Иван");
         Kulak anotherKulak = new Kulak("Борис");
 
-        kulak.age = 31;
+        kulak.setAge(31);
         anotherKulak.age = 19;
 
         System.out.println(kulak.name);
@@ -38,5 +64,31 @@ public class Main {
         System.out.println(kulakAge);
         System.out.println(anotherKulak.age);
         nkvd.checkAge(anotherKulak);
+
+        List<String> stringList;
+        stringList = List.of("Vasya", "Dima", "Irina", "Irina");
+        Set<String> stringSet;
+        stringSet = Set.of("Vasya", "Dima", "Irina");
+
+        Map<String, Human> humanMap = new HashMap<>();
+        humanMap.put("кулак", kulak);
+        humanMap.get("кулак");
+
+        Arrays.stream(stringArray);
+
+        Stream.of("Vasya", "Dima", "Irina", "Irina");
+
+        stringList.stream()
+                .map(x -> x.toUpperCase())
+                .filter(x -> !x.equals("DIMA"))
+                .forEach(x -> System.out.println(x));
+
+        for (String element : stringList) {
+            System.out.println(element);
+        }
+
+        for (String element : stringSet) {
+            System.out.println(element);
+        }
     }
 }
